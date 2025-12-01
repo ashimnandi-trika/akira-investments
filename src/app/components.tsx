@@ -122,11 +122,11 @@ export function ZenHeader() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm">
-      <nav className="max-w-6xl mx-auto px-8 py-6 flex items-center justify-between">
-        <Link href="/" className="text-2xl tracking-[0.3em] font-light">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex items-center justify-between">
+        <Link href="/" className="text-xl sm:text-2xl tracking-[0.3em] font-light">
           AKIRA
         </Link>
-        <div className="hidden md:flex items-center gap-12">
+        <div className="hidden md:flex items-center gap-8 lg:gap-12">
           {navigation.map((item) => (
             <Link 
               key={item.name}
@@ -138,20 +138,21 @@ export function ZenHeader() {
           ))}
         </div>
         <button
-          className="md:hidden p-2 text-neutral-500"
+          className="md:hidden p-2 -mr-2 text-neutral-500 min-w-[44px] min-h-[44px] flex items-center justify-center"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </nav>
       
       {mobileMenuOpen && (
-        <div className="md:hidden px-8 py-6 border-t border-neutral-100 bg-white">
+        <div className="md:hidden px-4 sm:px-6 py-4 border-t border-neutral-100 bg-white">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="block py-3 text-sm tracking-widest text-neutral-500 hover:text-black transition-colors uppercase"
+              className="block py-4 text-base tracking-widest text-neutral-500 hover:text-black transition-colors uppercase"
               onClick={() => setMobileMenuOpen(false)}
             >
               {item.name}
@@ -165,13 +166,13 @@ export function ZenHeader() {
 
 export function ZenFooter() {
   return (
-    <footer className="py-16 border-t border-neutral-100">
-      <div className="max-w-6xl mx-auto px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-4 mb-6">
-              <EnsoCircle className="w-10 h-10 text-neutral-300" />
-              <span className="text-lg tracking-[0.3em] font-light">AKIRA</span>
+    <footer className="py-12 sm:py-16 border-t border-neutral-100">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
+          <div className="sm:col-span-2">
+            <div className="flex items-center gap-4 mb-4 sm:mb-6">
+              <EnsoCircle className="w-8 h-8 sm:w-10 sm:h-10 text-neutral-300" />
+              <span className="text-base sm:text-lg tracking-[0.3em] font-light">AKIRA</span>
             </div>
             <p className="text-sm text-neutral-500 leading-relaxed max-w-sm">
               A holding company advancing systematic trading, intelligent automation, 
@@ -179,26 +180,26 @@ export function ZenFooter() {
             </p>
           </div>
           <div>
-            <p className="text-xs tracking-[0.2em] text-neutral-400 uppercase mb-4">Company</p>
-            <div className="space-y-3">
-              <Link href="/about" className="block text-sm text-neutral-500 hover:text-black transition-colors">Philosophy</Link>
-              <Link href="/portfolio" className="block text-sm text-neutral-500 hover:text-black transition-colors">Portfolio</Link>
-              <Link href="/leadership" className="block text-sm text-neutral-500 hover:text-black transition-colors">Leadership</Link>
+            <p className="text-xs tracking-[0.2em] text-neutral-400 uppercase mb-3 sm:mb-4">Company</p>
+            <div className="space-y-2 sm:space-y-3">
+              <Link href="/about" className="block text-sm text-neutral-500 hover:text-black transition-colors py-1">Philosophy</Link>
+              <Link href="/portfolio" className="block text-sm text-neutral-500 hover:text-black transition-colors py-1">Portfolio</Link>
+              <Link href="/leadership" className="block text-sm text-neutral-500 hover:text-black transition-colors py-1">Leadership</Link>
             </div>
           </div>
           <div>
-            <p className="text-xs tracking-[0.2em] text-neutral-400 uppercase mb-4">Contact</p>
-            <div className="space-y-3">
-              <Link href="/contact" className="block text-sm text-neutral-500 hover:text-black transition-colors">Investor Relations</Link>
+            <p className="text-xs tracking-[0.2em] text-neutral-400 uppercase mb-3 sm:mb-4">Contact</p>
+            <div className="space-y-2 sm:space-y-3">
+              <Link href="/contact" className="block text-sm text-neutral-500 hover:text-black transition-colors py-1">Investor Relations</Link>
               <p className="text-sm text-neutral-500">Dubai, UAE</p>
             </div>
           </div>
         </div>
-        <div className="pt-8 border-t border-neutral-100 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-neutral-400">© 2024 Akira Investments LLC. All rights reserved.</p>
+        <div className="pt-6 sm:pt-8 border-t border-neutral-100 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-neutral-400 text-center sm:text-left">© 2024 Akira Investments LLC. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link href="#" className="text-xs text-neutral-400 hover:text-neutral-600 transition-colors">Privacy Policy</Link>
-            <Link href="#" className="text-xs text-neutral-400 hover:text-neutral-600 transition-colors">Terms of Use</Link>
+            <Link href="#" className="text-xs text-neutral-400 hover:text-neutral-600 transition-colors py-1">Privacy Policy</Link>
+            <Link href="#" className="text-xs text-neutral-400 hover:text-neutral-600 transition-colors py-1">Terms of Use</Link>
           </div>
         </div>
       </div>
