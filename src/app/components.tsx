@@ -198,8 +198,8 @@ export function ZenFooter() {
         <div className="pt-6 sm:pt-8 border-t border-neutral-100 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-neutral-400 text-center sm:text-left">© 2024 Akira Investments LLC. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link href="#" className="text-xs text-neutral-400 hover:text-neutral-600 transition-colors py-1">Privacy Policy</Link>
-            <Link href="#" className="text-xs text-neutral-400 hover:text-neutral-600 transition-colors py-1">Terms of Use</Link>
+            <Link href="/privacy" className="text-xs text-neutral-400 hover:text-neutral-600 transition-colors py-1">Privacy Policy</Link>
+            <Link href="/terms" className="text-xs text-neutral-400 hover:text-neutral-600 transition-colors py-1">Terms of Use</Link>
           </div>
         </div>
       </div>
