@@ -1,111 +1,108 @@
-import Link from "next/link"
-import { ArrowUpRight, TrendingUp, Radio, Briefcase } from "lucide-react"
+"use client"
 
-export const metadata = {
-  title: "Portfolio | Akira Investments",
-  description: "Our portfolio companies advancing systematic trading and financial innovation.",
-}
+import Link from "next/link"
+import { ArrowUpRight, ArrowRight } from "lucide-react"
+import { ZenHeader, ZenFooter, EnsoCircle, BrushStroke, InkWash } from "@/app/components"
 
 const companies = [
   {
+    number: "01",
     name: "R1R3",
     sector: "Systematic Trading Software",
     description: "Position sizing and risk management infrastructure that works with any trading strategy. Institutional-grade execution discipline for independent traders.",
-    status: "Active",
     website: "https://r1r3.com",
-    icon: TrendingUp,
-    metrics: [
-      { label: "Focus", value: "Execution" },
-      { label: "Stage", value: "Pre-launch" },
-      { label: "Model", value: "SaaS" },
-    ],
+    focus: "Execution",
+    stage: "Pre-launch",
+    model: "SaaS"
   },
   {
+    number: "02",
     name: "Risk1Reward3",
     sector: "Financial Media & Education",
     description: "Educational content and community for traders who want to think systematically. Bridging the gap between retail confusion and institutional clarity.",
-    status: "Active",
     website: "https://risk1reward3.com",
-    icon: Radio,
-    metrics: [
-      { label: "Focus", value: "Education" },
-      { label: "Channels", value: "YouTube" },
-      { label: "Languages", value: "EN / HI" },
-    ],
+    focus: "Education",
+    channels: "YouTube",
+    languages: "EN / HI"
   },
 ]
 
-export default function PortfolioPage() {
+export default function ZenPortfolio() {
   return (
-    <main className="min-h-screen bg-white pt-20">
-      <section className="relative py-20 lg:py-28 bg-gradient-to-br from-neutral-900 via-neutral-800 to-blue-900 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
-          <div className="max-w-3xl">
-            <p className="text-blue-400 text-sm font-bold tracking-widest uppercase mb-4">
+    <main className="min-h-screen bg-white text-black">
+      <ZenHeader />
+
+      <section className="min-h-[70vh] flex items-center relative pt-20">
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/3 opacity-[0.04] hidden lg:block">
+          <EnsoCircle className="w-[60vh] h-[60vh] text-black" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-8 relative">
+          <div className="max-w-2xl">
+            <p className="text-[#C8102E] text-sm tracking-[0.4em] uppercase mb-6">
               Portfolio
             </p>
-            <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-6">
-              Companies We Build and Grow
+            <h1 className="text-5xl md:text-6xl font-light tracking-wide mb-8 leading-tight">
+              Companies We<br/>
+              <span className="text-neutral-400">Nurture</span>
             </h1>
-            <p className="text-xl text-neutral-300 leading-relaxed">
+            <p className="text-lg text-neutral-500 leading-relaxed">
               Every company in our portfolio shares a common thesis: discipline, automation, 
-              and transparency create sustainable advantages.
+              and transparency create sustainable advantages that compound over time.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <p className="text-sm text-blue-700 font-bold tracking-widest uppercase mb-8">
-            Active Companies
-          </p>
-          <div className="space-y-6">
+      <section className="py-32 relative">
+        <InkWash className="absolute top-0 left-0 right-0 h-48 text-black" />
+        
+        <div className="max-w-6xl mx-auto px-8 relative">
+          <div className="text-center mb-16">
+            <BrushStroke className="w-32 h-8 mx-auto mb-8 text-[#C8102E] opacity-60" />
+            <p className="text-xs tracking-[0.3em] text-neutral-400 uppercase">Active Companies</p>
+          </div>
+
+          <div className="space-y-16">
             {companies.map((company) => (
-              <div
-                key={company.name}
-                className="p-8 lg:p-10 bg-neutral-50 border border-neutral-200 hover:border-blue-300 transition-all"
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                  <div className="lg:col-span-2">
-                    <div className="flex items-start gap-4 mb-6">
-                      <div className="w-14 h-14 bg-blue-700 flex items-center justify-center flex-shrink-0">
-                        <company.icon className="w-7 h-7 text-white" />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-3 mb-1">
-                          <h2 className="text-2xl font-bold text-neutral-900">
-                            {company.name}
-                          </h2>
-                          <span className="px-3 py-1 text-xs font-semibold text-blue-700 bg-blue-100 border border-blue-200">
-                            {company.status}
-                          </span>
-                        </div>
-                        <p className="text-sm text-neutral-500 font-medium">{company.sector}</p>
-                      </div>
-                    </div>
-                    <p className="text-neutral-600 leading-relaxed mb-6">
-                      {company.description}
-                    </p>
-                    <Link
-                      href={company.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-blue-700 font-semibold hover:text-blue-800 transition-colors"
-                    >
-                      Visit Website <ArrowUpRight className="w-4 h-4" />
-                    </Link>
+              <div key={company.name} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pb-16 border-b border-neutral-100 last:border-0">
+                <div className="lg:col-span-1">
+                  <div className="relative">
+                    <EnsoCircle className="w-16 h-16 text-neutral-200" />
+                    <span className="absolute inset-0 flex items-center justify-center text-sm font-light text-[#C8102E]">
+                      {company.number}
+                    </span>
                   </div>
-                  <div className="grid grid-cols-3 lg:grid-cols-1 gap-4">
-                    {company.metrics.map((metric) => (
-                      <div key={metric.label} className="p-4 bg-white border border-neutral-200">
-                        <p className="text-xs text-neutral-400 font-medium uppercase tracking-wider mb-1">{metric.label}</p>
-                        <p className="text-sm font-bold text-neutral-900">{metric.value}</p>
-                      </div>
-                    ))}
+                </div>
+                
+                <div className="lg:col-span-7">
+                  <p className="text-xs tracking-[0.2em] text-[#C8102E] uppercase mb-2">{company.sector}</p>
+                  <h2 className="text-3xl font-light tracking-wide mb-4">{company.name}</h2>
+                  <p className="text-neutral-500 leading-relaxed mb-6">{company.description}</p>
+                  <Link
+                    href={company.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm tracking-widest text-black hover:text-[#C8102E] transition-colors"
+                  >
+                    VISIT WEBSITE <ArrowUpRight className="w-4 h-4" />
+                  </Link>
+                </div>
+                
+                <div className="lg:col-span-4">
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="text-center p-4 border border-neutral-100">
+                      <p className="text-xs text-neutral-400 uppercase tracking-wider mb-1">Focus</p>
+                      <p className="text-sm font-light">{company.focus}</p>
+                    </div>
+                    <div className="text-center p-4 border border-neutral-100">
+                      <p className="text-xs text-neutral-400 uppercase tracking-wider mb-1">Stage</p>
+                      <p className="text-sm font-light">{company.stage || company.channels}</p>
+                    </div>
+                    <div className="text-center p-4 border border-neutral-100">
+                      <p className="text-xs text-neutral-400 uppercase tracking-wider mb-1">Model</p>
+                      <p className="text-sm font-light">{company.model || company.languages}</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -114,35 +111,50 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-28 bg-neutral-50 border-t border-neutral-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <p className="text-sm text-neutral-400 font-bold tracking-widest uppercase mb-8">
-            Future Investments
-          </p>
-          <div className="p-8 border-2 border-dashed border-neutral-300 bg-white">
-            <div className="flex items-start gap-4 mb-4">
-              <div className="w-12 h-12 bg-neutral-200 flex items-center justify-center flex-shrink-0">
-                <Briefcase className="w-6 h-6 text-neutral-400" />
-              </div>
-              <div>
-                <div className="flex items-center gap-3 mb-1">
-                  <h3 className="text-lg font-bold text-neutral-500">
-                    Akira Ventures
-                  </h3>
-                  <span className="px-2 py-0.5 text-xs font-medium text-neutral-500 border border-neutral-300">
-                    Coming Soon
-                  </span>
+      <section className="py-32 bg-neutral-50 relative overflow-hidden">
+        <div className="absolute right-8 top-1/2 -translate-y-1/2 opacity-[0.03]">
+          <EnsoCircle className="w-[40vh] h-[40vh] text-black" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-8 relative">
+          <div className="max-w-2xl">
+            <p className="text-xs tracking-[0.3em] text-neutral-400 uppercase mb-8">Future Investments</p>
+            <div className="p-12 border-2 border-dashed border-neutral-300 bg-white">
+              <div className="flex items-center gap-6 mb-6">
+                <EnsoCircle className="w-12 h-12 text-neutral-200" />
+                <div>
+                  <h3 className="text-xl font-light tracking-wide text-neutral-400">Akira Ventures</h3>
+                  <p className="text-xs tracking-widest text-neutral-300 uppercase">Coming Soon</p>
                 </div>
-                <p className="text-sm text-neutral-400">Strategic Capital</p>
               </div>
+              <p className="text-sm text-neutral-400 leading-relaxed">
+                Future investments in companies aligned with our thesis of systematic innovation, 
+                disciplined execution, and long-term value creation.
+              </p>
             </div>
-            <p className="text-sm text-neutral-500 leading-relaxed">
-              Future investments in companies aligned with our thesis of systematic innovation, 
-              disciplined execution, and long-term value creation.
-            </p>
           </div>
         </div>
       </section>
+
+      <section className="py-32">
+        <div className="max-w-4xl mx-auto px-8 text-center">
+          <BrushStroke className="w-48 h-8 mx-auto mb-8 text-black opacity-20" />
+          <h2 className="text-3xl font-light tracking-wide mb-6">Partner With Us</h2>
+          <p className="text-neutral-500 mb-12 max-w-lg mx-auto">
+            We seek founders who understand that sustainable growth requires 
+            patience, discipline, and systematic thinking.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-black text-white hover:bg-[#C8102E] transition-colors duration-300 tracking-widest text-sm"
+          >
+            GET IN TOUCH
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
+
+      <ZenFooter />
     </main>
   )
 }

@@ -1,88 +1,114 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
-import { Linkedin, Twitter, ArrowRight } from "lucide-react"
+import { Linkedin, ArrowRight } from "lucide-react"
+import { ZenHeader, ZenFooter, EnsoCircle, BrushStroke, InkWash } from "@/app/components"
 
-export const metadata = {
-  title: "Leadership | Akira Investments",
-  description: "Meet the team behind Akira Investments.",
+function SumiSun({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className}>
+      <circle cx="50" cy="50" r="20" fill="#C8102E" />
+      <g stroke="#C8102E" strokeWidth="3" strokeLinecap="round">
+        <line x1="50" y1="10" x2="50" y2="22" />
+        <line x1="50" y1="78" x2="50" y2="90" />
+        <line x1="10" y1="50" x2="22" y2="50" />
+        <line x1="78" y1="50" x2="90" y2="50" />
+        <line x1="22" y1="22" x2="30" y2="30" />
+        <line x1="70" y1="70" x2="78" y2="78" />
+        <line x1="78" y1="22" x2="70" y2="30" />
+        <line x1="30" y1="70" x2="22" y2="78" />
+      </g>
+    </svg>
+  )
 }
 
-export default function LeadershipPage() {
+export default function ZenLeadership() {
   return (
-    <main className="min-h-screen bg-white pt-20">
-      <section className="relative py-20 lg:py-28 bg-gradient-to-br from-neutral-900 via-neutral-800 to-blue-900 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
-          <div className="max-w-3xl">
-            <p className="text-blue-400 text-sm font-bold tracking-widest uppercase mb-4">
+    <main className="min-h-screen bg-white text-black">
+      <ZenHeader />
+
+      <section className="min-h-[70vh] flex items-center relative pt-20">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/3 opacity-[0.04] hidden lg:block">
+          <EnsoCircle className="w-[50vh] h-[50vh] text-black" />
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-8 relative">
+          <div className="max-w-2xl">
+            <p className="text-[#C8102E] text-sm tracking-[0.4em] uppercase mb-6">
               Leadership
             </p>
-            <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-6">
-              The Team Behind Akira
+            <h1 className="text-5xl md:text-6xl font-light tracking-wide mb-8 leading-tight">
+              The Guide<br/>
+              <span className="text-neutral-400">Behind Akira</span>
             </h1>
-            <p className="text-xl text-neutral-300 leading-relaxed">
-              Building disciplined financial technologies requires both conviction and experience.
+            <p className="text-lg text-neutral-500 leading-relaxed">
+              Building disciplined financial technologies requires both conviction 
+              and the humility to learn from every market cycle.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-            <div className="lg:col-span-2">
-              <div className="aspect-[4/5] bg-neutral-100 relative overflow-hidden border border-neutral-200">
+      <section className="py-32 relative">
+        <InkWash className="absolute top-0 left-0 right-0 h-48 text-black" />
+        
+        <div className="max-w-6xl mx-auto px-8 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="relative">
+              <div className="absolute -top-8 -left-8 opacity-[0.06]">
+                <EnsoCircle className="w-48 h-48 text-black" />
+              </div>
+              <div className="aspect-[4/5] bg-neutral-100 relative overflow-hidden">
                 <Image
                   src="/ashim-nandi.jpg"
-                  alt="Ashim Nandi"
+                  alt="Ashim Nandi, founder and CEO of Akira Investments"
                   fill
-                  className="object-cover"
+                  className="object-cover grayscale"
                 />
               </div>
             </div>
-            <div className="lg:col-span-3 flex flex-col justify-center">
-              <p className="text-blue-700 text-sm font-bold tracking-widest uppercase mb-2">
-                Founder & CEO
-              </p>
-              <h2 className="text-3xl lg:text-4xl font-bold text-neutral-900 mb-6">
-                Ashim Nandi
-              </h2>
-              <div className="space-y-4 text-neutral-600 leading-relaxed mb-8">
+            
+            <div>
+              <p className="text-[#C8102E] text-sm tracking-[0.3em] uppercase mb-2">Founder & CEO</p>
+              <h2 className="text-4xl font-light tracking-wide mb-8">Ashim Nandi</h2>
+              
+              <div className="space-y-6 text-neutral-500 leading-relaxed mb-10">
                 <p>
-                  Ashim is a systematic trader and technologist with a background spanning 
-                  software engineering, financial markets, and media production. His trading 
-                  journey — from initial capital to significant drawdowns and rebuilding — 
-                  shaped the core philosophy behind Akira: that position sizing and risk 
-                  management matter more than prediction.
+                  Ashim is a systematic trader and technologist. His path has been shaped entirely 
+                  through building and experience, a continuous journey of ignorance, realization, 
+                  and acceptance that fuels his passion for creating with clarity and purpose.
                 </p>
                 <p>
-                  Before founding Akira Investments, he built and sold an IT consulting 
-                  company serving US businesses, and worked in theater production in Kolkata. 
-                  This diverse background informs his approach to building companies that 
-                  balance artistic vision with systematic execution.
+                  Before founding Akira Investments, he designed and built software and technology 
+                  solutions for businesses in the United States, gaining hands-on experience across 
+                  product creation and execution, and worked in theater production in Kolkata. This 
+                  diverse background informs his approach to building companies that balance artistic 
+                  vision with systematic execution.
                 </p>
                 <p>
-                  He is based in Dubai and leads the strategic direction of all Akira 
-                  portfolio companies, with a focus on creating tools and education that 
-                  democratize institutional-grade trading discipline.
+                  Based in Dubai, he leads the strategic direction of all Akira portfolio 
+                  companies, with a focus on creating tools and education that democratize 
+                  institutional-grade trading discipline.
                 </p>
               </div>
-              <div className="flex items-center gap-3">
+              
+              <BrushStroke className="w-24 h-6 mb-6 text-[#C8102E] opacity-40" />
+              
+              <div className="flex items-center gap-4">
                 <Link
-                  href="https://x.com/AshimNandi"
+                  href="https://ashimnandi.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-neutral-100 text-neutral-600 hover:text-blue-700 hover:bg-blue-50 transition-colors"
+                  className="p-4 border border-neutral-200 text-neutral-400 hover:text-[#C8102E] hover:border-[#C8102E] transition-colors"
                 >
-                  <Twitter className="w-5 h-5" />
+                  <SumiSun className="w-5 h-5" />
                 </Link>
                 <Link
-                  href="https://linkedin.com/in/ashimnandi"
+                  href="https://www.linkedin.com/in/trikarealization/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-neutral-100 text-neutral-600 hover:text-blue-700 hover:bg-blue-50 transition-colors"
+                  className="p-4 border border-neutral-200 text-neutral-400 hover:text-black hover:border-black transition-colors"
                 >
                   <Linkedin className="w-5 h-5" />
                 </Link>
@@ -92,25 +118,93 @@ export default function LeadershipPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-28 bg-neutral-50 border-t border-neutral-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <h2 className="text-2xl font-bold text-neutral-900 mb-4">
-              Advisory Network
-            </h2>
-            <p className="text-neutral-600 leading-relaxed mb-6">
-              We are building a network of advisors with expertise in quantitative finance, 
-              technology scaling, and media growth.
+      <section className="py-32 bg-neutral-50 relative overflow-hidden">
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 opacity-[0.03]">
+          <EnsoCircle className="w-[40vh] h-[40vh] text-black" />
+        </div>
+        
+        <div className="max-w-4xl mx-auto px-8 relative">
+          <div className="text-center mb-16">
+            <p className="text-[#C8102E] text-sm tracking-[0.3em] uppercase mb-4">The Journey</p>
+            <h2 className="text-3xl font-light tracking-wide">From Chaos to Clarity</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center mb-16">
+            <div className="group">
+              <div className="relative mb-6">
+                <EnsoCircle className="w-20 h-20 mx-auto text-neutral-200 group-hover:text-[#C8102E] transition-colors duration-500" />
+                <span className="absolute inset-0 flex items-center justify-center text-2xl font-light text-[#C8102E]">इ</span>
+              </div>
+              <p className="text-2xl font-light tracking-wide mb-2">Icchā</p>
+              <p className="text-xs tracking-[0.2em] text-[#C8102E] uppercase mb-4">Intention</p>
+              <p className="text-sm text-neutral-500 leading-relaxed">
+                The seed of all creation. Pure will aligned with purpose, before thought takes form.
+              </p>
+            </div>
+            
+            <div className="group">
+              <div className="relative mb-6">
+                <EnsoCircle className="w-20 h-20 mx-auto text-neutral-200 group-hover:text-[#C8102E] transition-colors duration-500" />
+                <span className="absolute inset-0 flex items-center justify-center text-2xl font-light text-[#C8102E]">ज्ञ</span>
+              </div>
+              <p className="text-2xl font-light tracking-wide mb-2">Jñāna</p>
+              <p className="text-xs tracking-[0.2em] text-[#C8102E] uppercase mb-4">Knowledge</p>
+              <p className="text-sm text-neutral-500 leading-relaxed">
+                Understanding that illuminates. Wisdom refined through experience, probability, and truth.
+              </p>
+            </div>
+            
+            <div className="group">
+              <div className="relative mb-6">
+                <EnsoCircle className="w-20 h-20 mx-auto text-neutral-200 group-hover:text-[#C8102E] transition-colors duration-500" />
+                <span className="absolute inset-0 flex items-center justify-center text-2xl font-light text-[#C8102E]">क्रि</span>
+              </div>
+              <p className="text-2xl font-light tracking-wide mb-2">Kriyā</p>
+              <p className="text-xs tracking-[0.2em] text-[#C8102E] uppercase mb-4">Action</p>
+              <p className="text-sm text-neutral-500 leading-relaxed">
+                Disciplined execution. Where intention meets knowledge and manifests in the world.
+              </p>
+            </div>
+          </div>
+          
+          <div className="text-center max-w-2xl mx-auto">
+            <BrushStroke className="w-32 h-6 mx-auto mb-8 text-black opacity-10" />
+            <p className="text-neutral-500 leading-relaxed">
+              Value is created not through force, but through elevation — raising consciousness 
+              to see clearly, raising intelligence to act wisely. When intention, knowledge, 
+              and action align, compounding becomes inevitable.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-700 text-white font-semibold hover:bg-blue-800 transition-colors"
-            >
-              Join Our Network <ArrowRight className="w-5 h-5" />
-            </Link>
           </div>
         </div>
       </section>
+
+      <section className="py-32">
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <BrushStroke className="w-24 h-6 mb-8 text-black opacity-20" />
+              <h2 className="text-3xl font-light tracking-wide mb-6">Advisory Network</h2>
+              <p className="text-neutral-500 leading-relaxed mb-8">
+                We are building a network of advisors with expertise in quantitative finance, 
+                technology scaling, and media growth. If you share our values of discipline, 
+                transparency, and long-term thinking, we would welcome a conversation.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-black text-white hover:bg-[#C8102E] transition-colors duration-300 tracking-widest text-sm"
+              >
+                JOIN OUR NETWORK
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="flex justify-center">
+              <EnsoCircle className="w-64 h-64 text-neutral-100" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ZenFooter />
     </main>
   )
 }
